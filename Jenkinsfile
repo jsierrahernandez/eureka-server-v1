@@ -4,7 +4,6 @@ node {
   }
 
   stage("Compilation") {
-    sh 'echo ${env.WORKSPACE}'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "${env.WORKSPACE}/mvnw clean install -DskipTests"
   }
