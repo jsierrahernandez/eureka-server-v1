@@ -1,5 +1,5 @@
 node {
-  stage("Clone the project") {
+  stage("Git clone") {
     git branch: 'main', url: 'https://github.com/SoftwarDevelop3r/eureka-server-v1.git'
   }
 
