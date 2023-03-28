@@ -5,6 +5,7 @@ node {
 
   stage("Compilation") {
     sh "chmod +x -R ${env.WORKSPACE}"
+    sh "mvn -N io.takari:maven:wrapper"
     sh "${env.WORKSPACE}/mvnw clean install -DskipTests"
   }
 
