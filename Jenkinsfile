@@ -5,7 +5,7 @@ node {
 
   stage("Compilation") {
     sh "chmod +x -R ${env.WORKSPACE}"
-    sh "./mvn clean install -DskipTests"
+    sh "./mvnw clean install -DskipTests"
   }
 
   //stage("Deployment") {
