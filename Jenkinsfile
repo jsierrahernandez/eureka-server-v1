@@ -9,9 +9,11 @@ node {
     sh "${env.WORKSPACE}/mvnw clean install -DskipTests"
   }
 
-  //stage("Deployment") {
-    //stage("Deployment") {
-      //sh 'nohup ./mvnw spring-boot:run -Dserver.port=8001 &'
-    //}
-  //}
+  stage("Deployment") {
+    stage("Deployment") {
+      sh 'sudo systemctl stop eureka
+      sh 'cp target/eureka-0.0.1-SNAPSHOT.jar /home/x658888/production/bin/'
+      sh 'sudo systemctl start eureka
+    }
+  }
 }
