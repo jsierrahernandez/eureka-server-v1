@@ -4,7 +4,7 @@ node {
   }
 
   stage("Compilation") {
-    sh "./mvnw clean install -DskipTests"
+    sh "./mvnw -f eureka-server/pom.xml clean install -DskipTests"
   }
 
   //stage("Deployment") {
