@@ -11,7 +11,7 @@ node {
 
   stage("Deployment") {
     sh 'sudo systemctl stop eureka'
-    sh 'cp target/eureka-0.0.1-SNAPSHOT.jar /home/x658888/production/bin/'
+    sh 'sudo cp target/eureka-0.0.1-SNAPSHOT.jar /home/x658888/production/bin/'
     sh 'sudo systemctl start eureka'
    }
 
