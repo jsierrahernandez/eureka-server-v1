@@ -7,9 +7,9 @@ node {
     sh "./mvnw clean install -DskipTests"
   }
 
-  stage("Deployment") {
-    stage("Deployment") {
-      sh 'nohup ./mvnw spring-boot:run -Dserver.port=8001 &'
-    }
-  }
+  //stage("Deployment") {
+    //stage("Deployment") {
+      //sh 'nohup ./mvnw spring-boot:run -Dserver.port=8001 &'
+    //}
+  //}
 }
