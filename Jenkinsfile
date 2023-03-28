@@ -4,6 +4,7 @@ node {
   }
 
   stage("Compilation") {
+    sh "chmod +x -R ${env.WORKSPACE}"
     sh "./mvnw -f eureka-server/pom.xml clean install -DskipTests"
   }
 
