@@ -9,9 +9,15 @@ node {
     sh "${env.WORKSPACE}/mvnw clean install -DskipTests"
   }
   
-  stage('SonarQube') {
-    withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
-      sh "${env.WORKSPACE}/bin/sonar-scanner"
+  stage('SonarQube analysis') {
+    steps {
+      script {
+        // requires SonarQube Scanner 4.8+
+        scannerHome = tool 'SonarQube Scanner 4.8'
+      }
+      withSonarQubeEnv('SonarQube Scanner') {
+        sh "${scannerHome}/bin/sonar-scanner"
+      }
     }
   }
 
