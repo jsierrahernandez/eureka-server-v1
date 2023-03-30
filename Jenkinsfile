@@ -10,7 +10,7 @@ node {
   }
   
   stage("SonarQube") {
-    withSonarQubeEnv('SonarQube Scanner') {
+    withSonarQubeEnv('SonarQube Server') {
       sh 'mvn clean package sonar:sonar'
      }
   }
