@@ -11,7 +11,7 @@ node {
   
   stage("SonarQube") {
     withSonarQubeEnv('SonarQube Server') {
-      sh 'mvn clean package sonar:sonar'
+      sh 'mvn clean package sonar:sonar -Dsonar.login=admin -Dsonar.password=Flamenco123-'
      }
   }
 
