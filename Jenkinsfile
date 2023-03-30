@@ -9,11 +9,10 @@ node {
     sh "${env.WORKSPACE}/mvnw clean install -DskipTests"
   }
   
-  stage('SonarQube analysis') {
-      scannerHome = tool 'SonarQube Scanner 4.8'
-      withSonarQubeEnv('SonarQube Scanner') {
-        sh "${scannerHome}/bin/sonar-scanner"
-      }
+  stage("SonarQube") {
+    withSonarQubeEnv('My SonarQube Server') {
+      sh 'mvn clean package sonar:sonar'
+     }
   }
 
   stage("Deployment") {
