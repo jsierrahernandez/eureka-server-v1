@@ -10,15 +10,10 @@ node {
   }
   
   stage('SonarQube analysis') {
-    steps {
-      script {
-        // requires SonarQube Scanner 4.8+
-        scannerHome = tool 'SonarQube Scanner 4.8'
-      }
+      scannerHome = tool 'SonarQube Scanner 4.8'
       withSonarQubeEnv('SonarQube Scanner') {
         sh "${scannerHome}/bin/sonar-scanner"
       }
-    }
   }
 
   stage("Deployment") {
