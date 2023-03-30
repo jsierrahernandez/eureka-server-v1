@@ -8,6 +8,13 @@ node {
     sh "mvn -N io.takari:maven:wrapper"
     sh "${env.WORKSPACE}/mvnw clean install -DskipTests"
   }
+  
+  stage('SonarQube') {
+    def scannerHome = tool 'SonarScanner 4.0';
+    withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
 
   stage("Deployment") {
     sh 'sudo systemctl stop eureka'
